@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #e0f7fa;
+}
+
+.banner {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  margin: 40px auto;
+  background: linear-gradient(to top, #4fc3f7 60%, #b3e5fc 100%);
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* Sun */
+.sun {
+  position: absolute;
+  top: 40px;
+  right: 80px;
+  width: 70px;
+  animation: sunMove 10s linear infinite alternate;
+}
+@keyframes sunMove {
+  0% { top: 40px; }
+  100% { top: 60px; }
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  top: 60px;
+  width: 120px;
+  opacity: 0.8;
+}
+.cloud1 {
+  left: -150px;
+  animation: cloudMove1 30s linear infinite;
+}
+.cloud2 {
+  top: 120px;
+  left: -200px;
+  width: 90px;
+  animation: cloudMove2 40s linear infinite;
+}
+@keyframes cloudMove1 {
+  0% { left: -150px; }
+  100% { left: 900px; }
+}
+@keyframes cloudMove2 {
+  0% { left: -200px; }
+  100% { left: 850px; }
+}
+
+/* Bird */
+.bird {
+  position: absolute;
+  top: 100px;
+  left: 200px;
+  width: 60px;
+  animation: birdFly 8s linear infinite;
+}
+@keyframes birdFly {
+  0% { left: 200px; top: 100px; }
+  50% { left: 600px; top: 80px; }
+  100% { left: 200px; top: 100px; }
+}
+
+/* Ship */
+.ship {
+  position: absolute;
+  left: 300px;
+  bottom: 30px; /* Giảm từ 60px xuống 30px để thuyền gần sóng hơn */
+  width: 240px;
+  z-index: 2;
+  animation: shipMove 4s ease-in-out infinite;
+}
+@keyframes shipMove {
+  0% { transform: translateY(0px) rotate(-2deg);}
+  50% { transform: translateY(-18px) rotate(2deg);}
+  100% { transform: translateY(0px) rotate(-2deg);}
+}
+
+/* Waves */
+.waves {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to top, #0288d1 60%, #4fc3f7 100%);
+  border-top-left-radius: 40px 30px;
+  border-top-right-radius: 40px 30px;
+  z-index: 1;
+  overflow: hidden;
+}
+.waves::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 200%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg width="800" height="80" viewBox="0 0 800 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 Q 100 80 200 40 T 400 40 T 600 40 T 800 40 V80 H0Z" fill="%23b3e5fc"/></svg>') repeat-x;
+  animation: waveMove 6s linear infinite;
+}
+@keyframes waveMove {
+  0% { left: 0; }
+  100% { left: -800px; }
+}
+
+.menu {
+  width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 32px 8px 32px;
+}
+.navigation a {
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 4px 16px;
+  transition: color 0.2s;
+}
+.navigation a:hover {
+  color: #0288d1;
+}
